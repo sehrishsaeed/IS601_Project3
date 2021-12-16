@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object Oriented Programming</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Style the body */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-image: url("images/study.jpg");
+            background-color: lightgoldenrodyellow;
+            background-position: center top;
+            background-repeat: repeat-y;
+            background-size: contain;
+        }
+
+        /* Header/logo Title */
+        .header {
+            padding-top: 35px;
+            padding-bottom: 1px;
+            text-align: center;
+            color: lightgoldenrodyellow;
+            font-size: 35px;
+            background-color: rgba(98,155,224,0.55);
+        }
+
+        /* Style the top navigation bar */
+        .navbar {
+            display: flex;
+            float: right;
+            padding: 14px 20px;
+            background: rgba(0,0,0,0.0);
+        }
+
+        /* Style the navigation bar links */
+        .navbar a {
+            color: lightgoldenrodyellow;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* Change color on hover */
+        .navbar a:hover {
+            background-color: lightgoldenrodyellow;
+            color: black;
+        }
+
+        .logo {
+            color: lightgoldenrodyellow;
+            float: left;
+            padding: 21px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 3vw;
+            font-weight: bold;
+            position: absolute;
+        }
+
+        /* Column container */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Create two unequal columns that sits next to each other */
+        /* Sidebar/left column */
+        .side {
+            flex:25%;
+            background-color: rgba(98,155,224,0.7);
+            padding: 20px;
+            color: lightgoldenrodyellow;
+        }
+
+        /* Main column */
+        .main {
+            flex:75%;
+            background-color: rgba(239,239,210,0.25);
+            color: lightgoldenrodyellow;
+            text-align: left;
+            padding-left: 75px;
+            padding-right: 75px;
+        }
+        .footer a:hover {
+            background-color: white;
+            color: rgba(98,155,224,0.7);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: rgba(98,155,224,0.7);
+            color: #E1F1FF;
+            font-weight: bold;
+        }
+
+        a:link, a:visited {
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            color: lightgoldenrodyellow;
+            padding: 6px 20px;
+            font-size: 20px;
+        }
+
+        a:hover, a:active {
+            background-color: #E1F1FF;
+            color: white;
+        }
+
+        /* Fake image, just for this example */
+        img {
+            background-color: rgba(255,255,255,0.0);
+            vertical-align: bottom;
+        }
+        .responsive {
+            width: 100%;
+            height: auto;
+        }
+        .break {
+            width: 100%;
+            font-size: 50px;
+            text-align: center;
+            color: lightgoldenrodyellow;
+            margin: auto;
+            height: 100px;
+            background-color: rgba(98,155,224,0.55);
+        }
+
+        .main-bottom {
+            flex:75%;
+            background-color: rgba(239,239,210,0.25);
+            color: lightgoldenrodyellow;
+            padding-left: 125px;
+            padding-right: 125px;
+            padding-bottom: 18px
+        }
+        p {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 45px;
+        }
+        h4 {
+            font-size: 38px;
+        }
+        h6 {
+            font-size: 50px;
+            margin: 0 0;
+            padding: 21px;
+        }
+        /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+        @media only screen and (max-width: 748px) {
+            .side {
+                width: 100%;
+            }
+            .main {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+            .row {
+                flex-direction: column;
+            }
+            .break {
+                height: 155px;
+            }
+        }
+        @media screen and (max-width: 828px) {
+            .logo {
+                font-size: 25px;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+            .main-bottom {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        @media screen and (min-width: 1100px) {
+            .logo {
+                font-size: 33px;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            img {
+                vertical-align: text-bottom;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<div class="logo">OOP</div>
+<div class="navbar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('Calculator_page') }}">Calculator</a>
+        <a href="{{ url_for('calculation_history') }}">Calculation History</a>
+        <a href="{{ url_for('About') }}">About</a>
+</div>
+<!-- Header -->
+<div class="header"><br>
+    <h1>Object Oriented Programming</h1>
+    <h3 style="margin-bottom: 42px">4 important concepts to know</h3>
+</div>
+<article>
+    <!-- The flexible grid (content) -->
+    <div class="row">
+        <div class="side">
+            <p> </p>
+        </div>
+        <div class="main"><br>
+            <h6 style="text-align: center">Polymorphism, Encapsulation, Abstraction, & Inheritance </h6>
+            <h2>What do all these mean?</h2>
+            <p>
+            There are 4 basic principles of Object Oriented Programming
+                <h2>Polymorphism</h2>
+               <li><mark>Polymorphism gives a way to use a class exactly like its parent so there's no confusion with mixing types.
+                   It is also is used so that a variable, function, or object can take multiple forms. Polymorphism uses a single symbol to
+                   represent multiple different types. This typically happens by defining a parent interface to be reused. Child classes implement their own version of these methods.</li><br></mark><br>
+            <br>
+              <h3>Calculator Utilization</h3><br>
+            When we used the "get_result" method we could see polymorphism being used. This is represented in polymorphism
+            because the values are being represented in various ways.
+
+            <br>
+              <h2>Encapsulation</h2>
+               <li> <mark> Encapsulation is achieved when each object keeps its state private, inside a class. Other objects don't have
+                access to this state. Instead, they can only call a list of public functions which are called methods.</li><br>
+                <br></mark>
+            <h3>Calculator Utilization</h3>
+           <b>This is used in the calculator project when using the "__init__" feature. We also incorporated using
+            staticmethods which would give us values as floats. This is represented in polymorphism because the values are being
+            represented in various ways.</b>
+Example of encapsulation below:
+            <ul type="square">
+ <li>public class Employee {</li>
+ <li>String name;</li>
+ <li>private Date dob; return name;</li>
+ <li> } public void setName(String name) {
+        this.name = name;</li>
+          <li>  }
+    public Date getDob() {
+        return dob;
+    }
+    public void setDob(Date dob) {
+        this.dob = dob;</li>
+}
+</ul>
+              <h2>Abstraction</h2>
+             <b> <li> <mark>Abstraction is basically the next step of encapsulation. In using OOP, Abstraction is your solution
+            to programs that are very large and involve a lot of different objects that communicate with each other.</b><br></mark>
+                  <br>
+                  <b><mark>"Using abstract class/Interface we express the intent of the class rather than the actual
+                  implementation. In a way, one class should not know the inner details of another in order to use it,
+                  just knowing the interfaces should be good enough." --https://medium.com/@cancerian0684/what-are-four-
+                  basic-principles-of-object-oriented-programming-645af8b43727</li> <br></b></mark>
+            <h3>Calculator Utilization</h3><br>
+            <br>
+            We used abstraction in the calculator project when we used the import feature<br>
+            <br>
+            Ex. "from calc.calculations.addition import Addition"
+            This example format serves as a blueprit for other classes. It allowed us to create a set of methods that
+            could be used withing any child classes that were to be built from the abstract classes.
+<br>
+              <h2>Inheritance</h2>
+            <li><b> <mark> One way to think about inheritance is that it aims to express “is-a” and/or “has-a” relationship between two objects.
+                The benefit is that it provides re-usability of a code.</li> </p></b></mark>
+ <h3>Calculator Utilization</h3><br>
+            <br>
+            We used inheritance when we wrote the code for the different classes. For exmaple, the code I used for division
+            is below:
+            """Division"""
+<b>from calc.Calculations.calculation import Calculation<br>
+<br>
+class Division(Calculation):
+    """division calculation object"""
+    def get_result(self):
+        """get the division results"""
+        div_result = 1.0
+        for value in self.values:
+            div_result = div_result * value
+        return div_result<b>
+
+
+        </div>
+    </div>
+
+     </div>
+        <div class="main"><br>
+            <h6 style="text-align: center"></h6>
+            <h2></h2>
+            <p>
+
+                <p>
+
+        <img alt="oopss" class="responsive" src="{{ url_for('static', filename='images/oopss.png') }}" style="padding: 20px">
+            <h2></h2>
+            <p>
+    <div class="break">
+        <h6>
+        </h6>
+
+
+    </div>
+<p><p></p>
+    <div class="row">
+        <div class="main-bottom">
+            <h4 style="text-align: center"><br><br>
+            </h4>
+            <p> </p>
+        </div>
+    </div>
+
+</article>
+<!-- Footer -->
+<!-- Footer -->
+<div class="footer">
+    <a href="https://github.com/goatz18/internet-history#readme" rel="nofollow" title="Sehrish Saeed Github">Sehrish Saeed &#169;</a>
+    <a href="http://validator.w3.org/check/referer" rel="nofollow" title="Validate as HTML5"><img alt="w3c" src="{{ url_for('static', filename='images/w3cicon.png') }}" style="padding: 0"></a>
+</div>
+</body>
+</html>

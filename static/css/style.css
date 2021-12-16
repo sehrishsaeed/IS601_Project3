@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/pexels-denniz-futalan-5049261.jpg");
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.hero-text button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 10px 25px;
+    color: black;
+    background-color: darkgray;
+    text-align: center;
+    cursor: pointer;
+}
+
+.hero-text button:hover {
+    background-color: #555;
+    color: white;
+}
+
+/* Style the top navigation bar */
+.navbar {
+    display: flex;
+    float: right;
+    padding: 14px 20px;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+    background-color: rebeccapurple;
+    color: white;
+}
+
+.logo {
+    color: white;
+    float: left;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    z-index: 4;
+    position: absolute;
+}
+
+/* Main column */
+.box {
+    float: left;
+    width: 33.33%;
+    padding: 50px;
+    background: rebeccapurple;
+}
+.row {
+    content: "";
+    display: table;
+    clear: both;
+    background: rebeccapurple;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: rebeccapurple;
+    color: white;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+    }
+}
+
+a:link, a:visited {
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: green;
+    color: white;
+}
+
+/* Fake image, just for this example */
+.webimg {
+    background-color: white;
+    padding: 20px;
+}
+.responsive {
+    width: 100%;
+    height: auto;
+}
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 700px) {
+    .box {
+        width: 100%;
+    }
+}

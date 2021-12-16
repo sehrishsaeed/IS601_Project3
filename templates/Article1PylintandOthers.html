@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pylint and some Tips & Tricks</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Style the body */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-image: url("images/study.jpg");
+            background-color: lightgoldenrodyellow;
+            background-position: center top;
+            background-repeat: repeat-y;
+            background-size: contain;
+        }
+
+        /* Header/logo Title */
+        .header {
+            padding-top: 35px;
+            padding-bottom: 1px;
+            text-align: center;
+            color: lightgoldenrodyellow;
+            font-size: 35px;
+            background-color: rgba(98,155,224,0.55);
+        }
+
+        /* Style the top navigation bar */
+        .navbar {
+            display: flex;
+            float: right;
+            padding: 14px 20px;
+            background: rgba(0,0,0,0.0);
+        }
+
+        /* Style the navigation bar links */
+        .navbar a {
+            color: lightgoldenrodyellow;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* Change color on hover */
+        .navbar a:hover {
+            background-color: lightgoldenrodyellow;
+            color: black;
+        }
+
+        .logo {
+            color: lightgoldenrodyellow;
+            float: left;
+            padding: 21px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 3vw;
+            font-weight: bold;
+            position: absolute;
+        }
+
+        /* Column container */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Create two unequal columns that sits next to each other */
+        /* Sidebar/left column */
+        .side {
+            flex:25%;
+            background-color: rgba(98,155,224,0.7);
+            padding: 20px;
+            color: lightgoldenrodyellow;
+        }
+
+        /* Main column */
+        .main {
+            flex:75%;
+            background-color: rgba(239,239,210,0.25);
+            color: lightgoldenrodyellow;
+            text-align: left;
+            padding-left: 75px;
+            padding-right: 75px;
+        }
+        .footer a:hover {
+            background-color: white;
+            color: rgba(98,155,224,0.7);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: rgba(98,155,224,0.7);
+            color: #E1F1FF;
+            font-weight: bold;
+        }
+
+        a:link, a:visited {
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            color: lightgoldenrodyellow;
+            padding: 6px 20px;
+            font-size: 20px;
+        }
+
+        a:hover, a:active {
+            background-color: #E1F1FF;
+            color: white;
+        }
+
+        /* Fake image, just for this example */
+        img {
+            background-color: rgba(255,255,255,0.0);
+            vertical-align: bottom;
+        }
+        .responsive {
+            width: 100%;
+            height: auto;
+        }
+        .break {
+            width: 100%;
+            font-size: 50px;
+            text-align: center;
+            color: lightgoldenrodyellow;
+            margin: auto;
+            height: 100px;
+            background-color: rgba(98,155,224,0.55);
+        }
+
+        .main-bottom {
+            flex:75%;
+            background-color: rgba(239,239,210,0.25);
+            color: lightgoldenrodyellow;
+            padding-left: 125px;
+            padding-right: 125px;
+            padding-bottom: 18px
+        }
+        p {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 45px;
+        }
+        h4 {
+            font-size: 38px;
+        }
+        h6 {
+            font-size: 50px;
+            margin: 0 0;
+            padding: 21px;
+        }
+        /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+        @media only screen and (max-width: 748px) {
+            .side {
+                width: 100%;
+            }
+            .main {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+            .row {
+                flex-direction: column;
+            }
+            .break {
+                height: 155px;
+            }
+        }
+        @media screen and (max-width: 828px) {
+            .logo {
+                font-size: 25px;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+            .main-bottom {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        @media screen and (min-width: 1100px) {
+            .logo {
+                font-size: 33px;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            img {
+                vertical-align: text-bottom;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<div class="logo">Object Oriented Programming</div>
+<div class="navbar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('Calculator_page') }}">Calculator</a>
+        <a href="{{ url_for('calculation_history') }}">Calculation History</a>
+        <a href="{{ url_for('About') }}">About</a>
+</div>
+<!-- Header -->
+<div class="header"><br>
+    <h1>Pylint and some Tips & Tricks</h1>
+    <h3 style="margin-bottom: 42px">So what is pylint?</h3>
+</div>
+<article>
+    <!-- The flexible grid (content) -->
+    <div class="row">
+        <div class="side">
+            <h2 style="font-size: 48px;margin-top: 0;text-align: center;padding-top: 19px">Important!</h2>
+            <p style="padding-left: 10px;padding-right: 10px;text-align: center">.Pylint is a source-code, bug and quality checker for the Python programming language.</p>
+            <h4 style="margin-bottom: 20px;margin-top: 20px;text-align: center">Pylint should be ran against anything that ends in .py </h4>
+            <h4 style="margin-bottom: 20px;margin-top: 20px;text-align: center"></h4>
+            <p style="padding-left: 10px;padding-right: 10px;text-align: center"></p>
+            <h4 style="margin-bottom: 20px;margin-top: 20px;text-align: center"></h4>
+            <p style="padding-left: 10px;padding-right: 10px;text-align: center"></p>
+        </div>
+        <div class="main"><br>
+            <h6 style="text-align: center">Feature Testing</h6>
+            <h2>Pylint and some Tips & Tricks</h2>
+            <p>
+                What is it and why should we use it? Also..why is it important??
+            </P>
+            <p> By definition according to pylint.org, "Pylint is a tool that checks for errors in Python code, tries to
+                enforce a coding standard and looks for code smells. It can also look for certain type errors, it can
+                recommend suggestions about how particular blocks can be refactored and can offer you details about the
+                code's complexity."
+
+                Testing, specifically AAA is important because they ensure quality products. Testing also helps to reduce
+                costs of maintenance. AAA is a great way to structure your tests. It follows an easy to maintain, improve, and read
+                format.
+
+
+            <h2>Some ways to implement pylint if you don't know how!</h2>
+            <b><li> <mark>First, launch the local Command Prompt on your CPU</mark></li>
+            <b><li> <mark>Type in the code that you are going to be using for your program</mark></li>
+            <b><li> <mark>After this, pylint should begin being installed.</mark></li><br>
+                <br>
+
+            <b><mark>You should use the command pip install pylint to easily install it as well.</mark>
+
+
+            </p>
+            <img alt="aaa" class="responsive" src="{{ url_for('static', filename='images/aaa.png') }}" style="padding: 20px">
+            <h2>Glossary of OOP Terms: Some important definitions! </h2>
+            <p>
+            <li>  <mark><b> Factory Method: </b></mark > it is a creational design pattern which solves the problem of creating product objects
+                without specifying their concrete classes.</li><br>
+            <br>
+            <li><mark><b>  Instantiation:</b></mark > The creation of an instance of a class.</li><br>
+            <br>
+            <li> <mark><b> Object:</b></mark > A unique instance of a data structure that's defined by its class.</li><br>
+            <br>
+            <li><mark><b> Class:</b></mark > A user-defined prototype for an object that defines a set of attributes that characterize any
+                object of the class. The attributes are data members and methods, accessed via dot notation.</li><br>
+            <br>
+            <li><mark><b> Constructor:</b></mark > Code that is executed each time an instance of the class is created.</li><br>
+            <br>
+            <li><mark><b> Static class:</b></mark > "A static class can be used as a convenient container for sets of methods that just operate
+                on input parameters and do not have to get or set any internal instance fieldsClass that cannot be instantiated, so no objects can be created from the class. The class members are
+                instead accessed using the class name. A static class provides a shortcut to the members of the class when instancing
+                is unwarranted." --docs.microsoft.com</li><br>
+            <br>
+            <li><mark><b> Methods:</b></mark > Operations (or actions) that objects perform or operations which are performed to an object.
+                Sometimes referred to as behaviors.</li><br>
+            <br>
+            <li><mark><b> Namespace:</b></mark > A namespace is a system that has a unique name for each and every object in Python. An object
+                might be a
+                variable or a method.</li><br>
+            <br>
+            <li><mark><b> Fixture:</b></mark > Fixtures define the steps and data that constitute the arrange phase of a test (see Anatomy of a test).</li><br>
+            <br>
+            <li><mark><b> Type Hint:</b></mark > "Type hinting gives you the ability to define the type of values that can be passed for each
+                argument of a function or method."-https://torquemag.io/2016/09/wordpress-developers-guide-type-hinting/</li><br>
+            <br>
+            <li><mark><b> Type Cast:</b></mark > "Type casting is a method used to change the variables/ values declared in a certain data type
+                into a different data type to match the operation required to be performed by the code."--https://techterms.com/definition/typecasting</li><br>
+            <br>
+            <li><mark><b> Facade:</b></mark > Facade is a structural design pattern that provides a simplified (but limited) interface to a
+                complex system of classes, library or framework.</li><br>
+            <br>
+            <li><mark><b> Property:</b></mark > The property() method in Python provides an interface to instance attributes</li><br>
+            <br>
+
+            </p>
+
+        </div>
+    </div>
+
+    <div class="break">
+        <h6>
+           Testing files: .py
+        </h6>
+    </div>
+
+    <div class="row">
+        <div class="main-bottom">
+            <h4 style="text-align: center">
+                Don't forget to create .py files that contain the various tests!<br><br>
+                <img alt="tests" class="responsive" src="{{ url_for('static', filename='images/testingimage.png') }}" style="max-height: 700px;width: auto;padding: 20px">
+            </h4>
+            <p>
+               It's important make sure that once you're finally prepared to test your files that you use the
+                "pip install -U pytest" command to install the pytest feature.
+            </p>
+            <p>
+                Once you've got that step down, you can use the command "pytest" in your terminal and it will perform
+                the tests. Once the tests are perfomrmed your files will have names that look like "test_*.py" or
+                *_test.py". And that's it! :)
+            </p>
+
+        </div>
+    </div>
+
+</article>
+<!-- Footer -->
+<!-- Footer -->
+<div class="footer">
+    <a href="https://github.com/goatz18/internet-history#readme" rel="nofollow" title="Sehrish Saeed Github">Sehrish Saeed &#169;</a>
+    <a href="http://validator.w3.org/check/referer" rel="nofollow" title="Validate as HTML5"><img alt="w3c" src="{{ url_for('static', filename='images/w3cicon.png') }}" style="padding: 0"></a>
+</div>
+</body>
+</html>

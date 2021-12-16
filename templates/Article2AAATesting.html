@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Using AAA to test with Python</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Style the body */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-image: url("images/study.jpg");
+            background-color: lightgoldenrodyellow;
+            background-position: center top;
+            background-repeat: repeat-y;
+            background-size: contain;
+        }
+
+        /* Header/logo Title */
+        .header {
+            padding-top: 35px;
+            padding-bottom: 1px;
+            text-align: center;
+            color: lightgoldenrodyellow;
+            font-size: 35px;
+            background-color: rgba(98,155,224,0.55);
+        }
+
+        /* Style the top navigation bar */
+        .navbar {
+            display: flex;
+            float: right;
+            padding: 14px 20px;
+            background: rgba(0,0,0,0.0);
+        }
+
+        /* Style the navigation bar links */
+        .navbar a {
+            color: lightgoldenrodyellow;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* Change color on hover */
+        .navbar a:hover {
+            background-color: lightgoldenrodyellow;
+            color: black;
+        }
+
+        .logo {
+            color: lightgoldenrodyellow;
+            float: left;
+            padding: 21px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 3vw;
+            font-weight: bold;
+            position: absolute;
+        }
+
+        /* Column container */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Create two unequal columns that sits next to each other */
+        /* Sidebar/left column */
+        .side {
+            flex:25%;
+            background-color: rgba(98,155,224,0.7);
+            padding: 20px;
+            color: lightgoldenrodyellow;
+        }
+
+        /* Main column */
+        .main {
+            flex:75%;
+            background-color: rgba(239,239,210,0.25);
+            color: lightgoldenrodyellow;
+            text-align: left;
+            padding-left: 75px;
+            padding-right: 75px;
+        }
+        .footer a:hover {
+            background-color: white;
+            color: rgba(98,155,224,0.7);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: rgba(98,155,224,0.7);
+            color: #E1F1FF;
+            font-weight: bold;
+        }
+
+        a:link, a:visited {
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            color: lightgoldenrodyellow;
+            padding: 6px 20px;
+            font-size: 20px;
+        }
+
+        a:hover, a:active {
+            background-color: #E1F1FF;
+            color: white;
+        }
+
+        /* Fake image, just for this example */
+        img {
+            background-color: rgba(255,255,255,0.0);
+            vertical-align: bottom;
+        }
+        .responsive {
+            width: 100%;
+            height: auto;
+        }
+        .break {
+            width: 100%;
+            font-size: 50px;
+            text-align: center;
+            color: lightgoldenrodyellow;
+            margin: auto;
+            height: 100px;
+            background-color: rgba(98,155,224,0.55);
+        }
+
+        .main-bottom {
+            flex:75%;
+            background-color: rgba(239,239,210,0.25);
+            color: lightgoldenrodyellow;
+            padding-left: 125px;
+            padding-right: 125px;
+            padding-bottom: 18px
+        }
+        p {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 45px;
+        }
+        h4 {
+            font-size: 38px;
+        }
+        h6 {
+            font-size: 50px;
+            margin: 0 0;
+            padding: 21px;
+        }
+        /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+        @media only screen and (max-width: 748px) {
+            .side {
+                width: 100%;
+            }
+            .main {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+            .row {
+                flex-direction: column;
+            }
+            .break {
+                height: 155px;
+            }
+        }
+        @media screen and (max-width: 828px) {
+            .logo {
+                font-size: 25px;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+            .main-bottom {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+        }
+        @media screen and (min-width: 1100px) {
+            .logo {
+                font-size: 33px;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            img {
+                vertical-align: text-bottom;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<div class="logo">OOP: Object Oriented Programming</div>
+<div class="navbar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('Calculator_page') }}">Calculator</a>
+        <a href="{{ url_for('calculation_history') }}">Calculation History</a>
+        <a href="{{ url_for('About') }}">About</a>
+</div>
+<!-- Header -->
+<div class="header"><br>
+    <h1>Arrange-Act-Assert or AAA for short</h1>
+    <h3 style="margin-bottom: 42px">The importance and why we should use it</h3>
+</div>
+<article>
+    <!-- The flexible grid (content) -->
+    <div class="row">
+        <div class="side">
+            <h2 style="font-size: 48px;margin-top: 0;text-align: center;padding-top: 19px">More on AAA</h2>
+            <h4 style="margin-bottom: 20px;margin-top: 20px;text-align: center">Arrange: where you enter the variables being tested</h4>
+            <p style="padding-left: 10px;padding-right: 10px;text-align: center">Arrange steps should set up the test case.</p>
+            <h4 style="margin-bottom: 20px;margin-top: 20px;text-align: center">Act: checks the behavior</h4>
+            <p style="padding-left: 10px;padding-right: 10px;text-align: center">Act steps should cover the main part to be tested, ie your calculations in the calc example</p>
+            <h4 style="margin-bottom: 20px;margin-top: 20px;text-align: center">Assert: The outcome</h4>
+            <p style="padding-left: 10px;padding-right: 10px;text-align: center">Assertions will ultimately determine if the test passes and give you an answer on whether
+                or not your tests work properly. This is the final stage of the test.</p>
+        </div>
+        <div class="main"><br>
+            <h6 style="text-align: center">Feature Testing</h6>
+            <h2>Applying these tests in a Calculator</h2>
+            <p>
+               What exactly does it mean to test something?
+                <p> The point of a test is to indicate whether something has passed or failed. Essentially, a test
+                determines if a certain behavior functions properly. There are many different types of tests in tech but we'll
+                focus on AAA testing here. There's a lot of testing that happens in programming and as you learn in most web development
+                classes, testing ensures that your program is of top quality and is meeting all set requirements.
+                Below is an example of AAA testing that we used in webstorm to create calculator tests. In the example
+                you'll see multiplication being utilized.
+            <img alt="aaa" class="responsive" src="{{ url_for('static', filename='images/multiplytestimage.png') }}" style="padding: 20px">
+            <h2>AAA stands for Arrange-Act-Assert</h2>
+            <p>
+                Arrange-Act-Insert, better known as AAA is important because in a program it will ensure that tests are
+                working properly. They will look at individual activity within a code and make sure that it is working
+                correctly. It is a pattern for writing good tests.
+                For example, according to automationpanda.com, (which is a great website to learn more about these topics)
+                "The Arrange step creates a variable named “negative” for testing. The Act step calls the “abs” function
+                using the “negative” variable and stores the returned value in a variable named “answer.” The Assert step
+                verifies that “answer” is a positive value."
+            </p>
+               <li>  <b> <mark> In the calculator example Arrange creates the variables "1.0" and "2.0" as "mynumbers" which
+                   indicates that they are the variables being multiplied together.</li>
+                <li> <b> <mark> In the next step, which is Act, the "Multiply" function using the "mynumbers" variable and stores
+                the new value after the equation is solved.</li>
+               <li> <b> <mark> The final step in the test which is the Assert, verified that "multiplication.get_result" will give the
+                result of "2.0".</li>
+            <p>"""Testing Multiplication"""
+               <li>from calc.Calculations.multiply import Multiplication</li><br>
+            <br>
+
+
+               <li>def test_calculation_subtraction():</li>
+                 """testing that our calculator has a static method for multiplication"""
+               <li>  # Arrange mynumbers = (1.0, 2.0) multiplication = Multiplication(mynumbers)</li>
+                 <li># Act</li>
+            <li> # Assert assert multiplication.get_result() == 2.0 <</li> </p>
+        </div>
+    </div>
+
+     </div>
+        <div class="main"><br>
+            <h6 style="text-align: center">The Different Steps</h6>
+            <h2>Arrange</h2>
+            <p>This is the first step in AAA Testing. It is important to answer the questions below before we begin.
+
+            <b> <li><mark>Is there a need for special objects or settings?</li>
+                <b> <li><mark>Will it require a web application to use?</li>
+            <b> <li><mark>Will it involve using a database?</li>
+                  <b> <li><mark>If there is a database how will it be connected?</li>
+
+
+            <h2>Act</h2>
+                <b> <mark> Once we complete the arrange portion of the test, the next step is the Act part.
+                In this part you can create objects/methods relating to your function. In the example of the calculator,
+                we made the object name as "calc". In this case we are using addition as the method here.</b></mark>
+                <p>
+            <h2>Assert</h2>
+          <b> <mark>This is the last portion of the AAA testing. Here you should get an outcome that you are expecting. For example,
+            this is where you would see if the test has passed or failed your program. In the example of the calculator,
+            we added two number expecting a certain result and if the answer did not match up to what was expected, this test
+            would fail. If the calculation was correct then in this phase we would see it pass.</b></mark>
+
+                <p>
+            <h2></h2>
+            <p>
+    <div class="break">
+        <h6>
+        </h6>
+      <p>
+      </p>
+    </div>
+<p><p></p>
+    <div class="row">
+        <div class="main-bottom">
+            <h4 style="text-align: center"><br><br>
+            </h4>
+        </div>
+    </div>
+
+</article>
+<!-- Footer -->
+<!-- Footer -->
+<div class="footer">
+    <a href="https://github.com/goatz18/internet-history#readme" rel="nofollow" title="Sehrish Saeed Github">Sehrish Saeed &#169;</a>
+    <a href="http://validator.w3.org/check/referer" rel="nofollow" title="Validate as HTML5"><img alt="w3c" src="{{ url_for('static', filename='images/w3cicon.png') }}" style="padding: 0"></a>
+</div>
+</body>
+</html>

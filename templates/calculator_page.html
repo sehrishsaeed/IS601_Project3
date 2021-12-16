@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Calculator</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+</head>
+<body>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Calculator</h3>
+			</div>
+			<div class="card-body">
+				<form method="POST" action="{{ url_for('Calculate_Data') }}" onsubmit="return validateFields();">
+					<div class="input-group form-group">
+						<input type="text" name="value1" id="value1" class="form-control" placeholder="Value 1">
+
+					</div>
+					<div class="input-group form-group">
+						<input type="text" name="value2" id="value2" class="form-control" placeholder="Value 2">
+					</div>
+
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                      <input type="radio" class="btn-check" value="addition" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                      <label class="btn btn-outline-primary" for="btnradio1">Add</label>
+
+                      <input type="radio" class="btn-check" value="subtraction" name="btnradio" id="btnradio2" autocomplete="off">
+                      <label class="btn btn-outline-primary" for="btnradio2">Subtract</label>
+
+                      <input type="radio" class="btn-check" value="multiplication" name="btnradio" id="btnradio3" autocomplete="off">
+                      <label class="btn btn-outline-primary" for="btnradio3">Multiply</label>
+
+                        <input type="radio" class="btn-check" value="division" name="btnradio" id="btnradio3" autocomplete="off">
+                      <label class="btn btn-outline-primary" for="btnradio3">Divide</label>
+                    </div>
+
+					<div class="form-group">
+						<input type="submit" value="Calculate  " class="btn float-right login_btn">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+    function validateFields(){
+    var value1 = document.getElementById('value1').value;
+    var value2 = document.getElementById('value2').value;
+    if(value1 == null || value1 == "" || value2 == null || value2 == "") {
+        alert("empty field not allowed.");
+        return false;
+    }
+    return true;
+    }
+</script>
+</body>
+</html>

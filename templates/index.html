@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History of the Internet Home</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgba(0,96,168,1);
+            background-position: top;
+            background-size: contain;
+            background-attachment: fixed;
+            background-image: url("images/wwweb.jpg");
+        }
+
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/wwweb.jpg");
+            height: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -43%);
+            color: #E1F1FF;
+        }
+
+        .hero-text a {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 12px 19px;
+            color: #E1F1FF;
+            background-color: #0060A8;
+            text-align: center;
+            font-size: 21px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 3;
+            margin: 30px;
+        }
+
+        .hero-text a:hover {
+            background-color: #002A47;
+            color: #E1F1FF;
+        }
+
+        /* Style the top navigation bar */
+        .navbar {
+            display: flex;
+            padding: 14px 20px;
+            float: right;
+        }
+
+        /* Style the navigation bar links */
+        .navbar a {
+            color: #E1F1FF;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            background-color: rgba(0,96,168,0.45);
+            z-index: 3;
+        }
+
+        /* Change color on hover */
+        .navbar a:hover {
+            background-color: #0060A8;
+            color: #E1F1FF;
+        }
+
+        .logo {
+            color: #E1F1FF;
+            float: left;
+            padding: 21px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 3vw;
+            font-weight: bold;
+            z-index: 2;
+            position: absolute;
+        }
+
+        .row {
+            display: table;
+            clear: both;
+        }
+        .row-two {
+            display: table;
+            clear: both;
+            padding: 0 300px 0 300px;
+        }
+        /* Main column */
+        .box {
+            float: left;
+            width: 33.3%;
+            padding: 50px;
+            display: table-cell;
+            color: #E1F1FF;
+            text-align: center;
+        }
+        .box-two {
+            float: left;
+            width: 50%;
+            padding: 50px;
+            display: table-cell;
+            color: #E1F1FF;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #0060A8;
+            color: #E1F1FF;
+            font-weight: bold;
+        }
+
+        a:link, a:visited {
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            color: #E1F1FF;
+            padding: 6px 20px;
+            font-size: 20px;
+        }
+
+        a:hover, a:active {
+            background-color: #E1F1FF;
+            color: #0060A8;
+        }
+
+        /* image, just for this example */
+        img {
+            vertical-align:bottom;
+            padding: 10px;
+        }
+        .responsive {
+            width: 100%;
+            height: auto;
+        }
+        .break {
+            width: 100%;
+            height: 100px;
+            color: #E1F1FF;
+            background-color: rgba(0,0,0,0.4);
+            vertical-align: center;
+            font-size: 45px;
+            text-align: center;
+        }
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 822px) {
+            .box {
+                width: 100%;
+            }
+            .box-two {
+                width: 100%;
+            }
+            .navbar {
+                flex-direction: column;
+            }
+            .hero-text {
+                transform: translate(-66%, -45%);
+            }
+            .row-two {
+                padding: 0;
+            }
+            .hero-image {
+                height: 75%;
+            }
+        }
+        @media screen and (max-width: 828px) {
+            .logo {
+                font-size: 25px;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+        }
+        @media screen and (min-width: 1100px) {
+            .logo {
+                font-size: 33px;
+            }
+        }
+        p {
+            font-size: 25px;
+        }
+        h2 {
+            font-size: 41px;
+        }
+        h4 {
+            font-size: 34px;
+        }
+
+    </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+{#    <div class="logo">History of the Internet &<br>OOP Tutorials</div>#}
+    <div class="navbar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('Pylindt_and_Others') }}">Pylindt and Others</a>
+        <a href="{{ url_for('AAA_Testing') }}">AAA Testing</a>
+        <a href="{{ url_for('OOP') }}">OOP</a>
+        <a href="{{ url_for('Article_4') }}">Article 4</a>
+        <a href="{{ url_for('Calculator_page') }}">Calculator</a>
+        <a href="{{ url_for('calculation_history') }}">Calculation History</a>
+        <a href="{{ url_for('About') }}">About</a>
+    </div>
+<!-- Header -->
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size:50px">One Strand at a Time</h1>
+            <p style="font-size:25px">Many Small Contributions to One Big Web<br>
+                Including Object Oriented Programming
+            </p>
+{#            <a href="http://history18.eastus.azurecontainer.io/behindtheweb.html">What Started It All</a>#}
+        </div>
+    </div>
+<article style="background: rgba(0,0,0,0.6);"><!-- The flexible grid (content) -->
+    <div class="break">
+        <h5 style="margin: 0;padding: 29px">World Wide Web Woven Strands of History!</h5>
+    </div>
+    <div class="row">
+        <div class="box">
+            <h2>The Internet</h2>
+            <h4>Behind the Web</h4>
+{#            <a href="http://history18.eastus.azurecontainer.io/behindtheweb.html" style="padding: 0;"><img alt="web tiles" class="responsive" src="images/web.jpg"></a>#}
+            <p>What started it all...</p>
+            <p>
+                The History Channel Special "The Internet: Behind The Web" summary of how the World Wide Web came to be.
+            </p>
+        </div>
+        <div class="box">
+            <h2>The True Story of The Internet</h2>
+            <h4>Browser Wars</h4>
+{#            <a href="http://history18.eastus.azurecontainer.io/browser_wars.html" style="padding: 0;"><img alt="browser" class="responsive" src="images/browser.jpg"></a>#}
+            <p>Our Window To The Web</p>
+            <p>
+                How Marc Anderson brought the world's first graphical web browser into being and how it sparked a war over Internet dominance.
+            </p>
+        </div>
+        <div class="box">
+            <h2>The True Story of The Internet</h2>
+            <h4>Internet Search</h4>
+{#            <a href="http://history18.eastus.azurecontainer.io/search.html" style="padding: 0;"><img alt="search" class="responsive" src="images/search.jpg"></a>#}
+            <p>Yahoo, Excite, Google, Oh My!</p>
+            <p>The early Internet was not easy to search. It was even harder to sustain dominance for search engines. Until...</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="box">
+            <h2>The True Story of The Internet</h2>
+            <h4>Dot Com Bubble</h4>
+{#            <a href="http://history18.eastus.azurecontainer.io/dot_com.html" style="padding: 0;"><img alt="web tiles" class="responsive" src="images/dotcom.jpg"></a>#}
+            <p>Unchecked Booms Only Have One Way To Go...</p>
+            <p>Eveyone tries to capitalize on the Dot Com Bubble, but for some, or most, it's too late.</p>
+        </div>
+        <div class="box">
+            <h2>What is the Internet</h2>
+            <h4>What Powers The Internet</h4>
+{#            <a href="http://history18.eastus.azurecontainer.io/WhatistheInternet.html" style="padding: 0;"><img alt="power" class="responsive" src="images/power.jpg"></a>#}
+            <p>What is the Internet Today</p>
+        </div>
+        <div class="box">
+            <h2>Important People</h2>
+            <h4>Web Strand Inventors</h4>
+{#            <a href="http://history18.eastus.azurecontainer.io/people.html" style="padding: 0;"><img style="height: 375px;width: 285px;" alt="power" class="responsive" src="images/internetpeople.jpg"></a>#}
+            <p>Internet Forefathers</p>
+            <p>Who are the many contributors to what the Internet has come to be today?</p>
+        </div>
+    </div>
+    <div class="row-two">
+        <div class="box-two">
+            <h2>Wires, Cables, & Wifi, Oh My!</h2>
+            <h4>DNS and How It Works</h4>
+{#            <a href="http://history18.eastus.azurecontainer.io/TheInternetCont.html" style="padding: 0;"><img alt="web tiles" class="responsive" src="images/wires.jpg"></a>#}
+            <p>We're All Connected, Seriously</p>
+            </div>
+        <div class="box-two">
+            <h2>Packets, Routing, & Reliability</h2>
+            <h4>The Information Superhighway</h4>
+{#            <a href="http://history18.eastus.azurecontainer.io/PacketsRoutingWifi.html" style="padding: 0;"><img alt="browser" class="responsive" src="images/superhighway.jpg"></a>#}
+            <p>How Information Today is Really Sent Over the Web</p>
+        </div>
+    </div>
+
+    <div class="break">
+        <h5 style="margin: 0;padding: 29px">& Also Object Oriented Programming!</h5>
+    </div>
+    <div class="row-two">
+        <div class="box-two">
+            <h2>Pylint Tips and Tricks & Glossary of OOP Terms</h2>
+{#            <a href="http://history18.eastus.azurecontainer.io/oopglossary.html" style="padding: 0;"><img alt="web tiles" class="responsive" src="images/tips.jpg"></a>#}
+            <h4>New to Python, No Problem</h4>
+        </div>
+        <div class="box-two">
+            <h2>AAA Testing With Python</h2>
+{#            <a href="http://history18.eastus.azurecontainer.io/oopaaa.html" style="padding: 0;"><img alt="browser" class="responsive" src="images/error.jpg"></a>#}
+            <h4>Why it is Important</h4>
+        </div>
+    </div>
+    <div class="row-two">
+        <div class="box-two">
+            <h2>Object Oriented Programming</h2>
+{#            <a href="http://history18.eastus.azurecontainer.io/oopoop.html" style="padding: 0;"><img alt="web tiles" class="responsive" src="images/principles.jpg"></a>#}
+            <h4>Principles: Calculator Program Examples</h4>
+        </div>
+        <div class="box-two">
+            <h2>Insert Selector Here</h2>
+{#            <a href="http://history18.eastus.azurecontainer.io/oopselect.html" style="padding: 0;"><img alt="browser" class="responsive" src="images/superhighway.jpg"></a>#}
+            <h4>Insert Selector Here</h4>
+        </div>
+    </div>
+
+</article>
+
+    <!-- Footer -->
+{#    <div class="footer">#}
+{#        <a href="https://github.com/goatz18/internet-history#readme" rel="nofollow" title="Jason W. Guerrieri Github">Jason W. Guerrieri &#169;</a>#}
+{#        <a href="https://github.com/sehrishsaeed/internet-history-1.git" rel="nofollow" title="Sehrish Saeed Github">Sehrish Saeed &#169;</a>#}
+{#        <a href="https://github.com/aad84/internet-history.git" rel="nofollow" title="Ayush Deshpande Github">Ayush Deshpande &#169;</a>#}
+{#        <a href="http://history18.eastus.azurecontainer.io/about.html" rel="nofollow" title="Ayush Deshpande Github">About & Sources</a>#}
+{#        <a href="http://validator.w3.org/check/referer" rel="nofollow" title="Validate as HTML5"><img alt="w3c" class="responsive" src="images/w3cicon.png" style="padding: 0"></a>#}
+{#    </div>#}
+</body>
+</html>
