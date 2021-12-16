@@ -1,4 +1,4 @@
-# IS601_Project3
+# Project 3: IS 601:851
 
 What a wonderful class. I've learned so much, thank you. 
 
