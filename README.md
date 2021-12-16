@@ -1,5 +1,6 @@
 # IS601_Project3
-#steps to run project
+
+# steps to run project
 step 1: run in cmd/terminal
 pip install -r requirements.txt
 
